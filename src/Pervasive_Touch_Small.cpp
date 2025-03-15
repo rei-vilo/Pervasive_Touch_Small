@@ -501,11 +501,7 @@ void Pervasive_Touch_Small::begin()
     COG_reset(); // Reset
     COG_getDataOTP(); // 3-wire SPI read OTP memory
 
-    // #if (TOUCH_MODE != USE_TOUCH_NONE)
-
     d_beginTouch();
-
-    // #endif // TOUCH_MODE
 }
 
 STRING_CONST_TYPE Pervasive_Touch_Small::reference()
@@ -535,7 +531,7 @@ void Pervasive_Touch_Small::updateNormal(FRAMEBUFFER_CONST_TYPE frame, uint32_t 
 }
 
 void Pervasive_Touch_Small::updateFast(FRAMEBUFFER_CONST_TYPE frame1,
-                                        FRAMEBUFFER_CONST_TYPE frame2, uint32_t sizeFrame)
+                                       FRAMEBUFFER_CONST_TYPE frame2, uint32_t sizeFrame)
 {
     b_resume(); // GPIO
     COG_reset(); // Reset
@@ -559,8 +555,6 @@ void Pervasive_Touch_Small::updateFast(FRAMEBUFFER_CONST_TYPE frame1,
 //
 // === Touch section
 //
-// #if (TOUCH_MODE != USE_TOUCH_NONE)
-
 void Pervasive_Touch_Small::d_beginTouch()
 {
     // v_touchTrim = 0x10; // standard threshold
@@ -568,7 +562,7 @@ void Pervasive_Touch_Small::d_beginTouch()
 
     // Target   FSM_ON
     // Source   FSM_OFF -> FSM_SLEEP
-    //      FSM_SLEEP
+    //          FSM_SLEEP
     if (d_fsmPowerTouch == FSM_OFF)
     {
         hV_HAL_Wire_begin();
@@ -840,8 +834,6 @@ bool Pervasive_Touch_Small::d_getInterruptTouch()
     // 271, 343 and 370: LOW = false for interrupt
     return (hV_HAL_GPIO_get(b_pin.touchInt) == LOW);
 }
-
-// #endif // TOUCH_MODE
 //
 // === End of Touch section
 //

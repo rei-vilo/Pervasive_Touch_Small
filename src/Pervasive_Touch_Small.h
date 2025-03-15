@@ -138,12 +138,8 @@ class Pervasive_Touch_Small : public Driver_EPD_Virtual
     //
     // === Touch section
     //
-// #if (TOUCH_MODE != USE_TOUCH_NONE)
-
     virtual void d_getRawTouch(touch_t & touch);
     virtual bool d_getInterruptTouch();
-
-// #endif // TOUCH_MODE
     //
     // === End of Touch section
     //
@@ -165,16 +161,12 @@ class Pervasive_Touch_Small : public Driver_EPD_Virtual
     //
     // === Touch section
     //
-// #if (TOUCH_MODE != USE_TOUCH_NONE)
-
     uint8_t d_touchAddress;
     uint8_t d_touchPrevious;
     uint16_t d_touchX, d_touchY;
     uint8_t d_fsmPowerTouch = FSM_OFF;
 
     void d_beginTouch();
-
-// #endif // TOUCH_MODE
     //
     // === End of Touch section
     //
