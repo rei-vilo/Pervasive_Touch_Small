@@ -4,7 +4,7 @@ The driver is specifically designed for the [Pervasive Displays](https://www.per
 
 ![](https://pdls.pervasivedisplays.com/userguide/img/Logo_PDI_text_320.png)
 
-The **Driver_EPD_Touch_Small** supports the screens
+The **Pervasive_Touch_Small** supports the screens
 
 * Pervasive Displays iTC monochrome [with touch, wide temperature and embedded fast update](https://www.pervasivedisplays.com/products-e-ink-display/?_sft_etc_itc=pu&_sft_temperature_range=m15c-to-p60c&_sft_product_colour=black-white) (film `K`) with sizes of 2.71 and 3.70"; 
 

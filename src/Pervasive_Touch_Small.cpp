@@ -47,6 +47,8 @@
 // Release 806: Added Wire debugging
 // Release 900: Added new driver library
 // Release 902: Simplified touch options
+// Release 909: Added I2C device availability check
+// Release 909: Improved stability for 3.70 touch
 //
 
 // Header
@@ -86,20 +88,20 @@ void Pervasive_Touch_Small::COG_reset()
     // // Check after reset
     // switch (u_eScreen_EPD)
     // {
-    // case eScreen_EPD_150_KS_0J:
-    // case eScreen_EPD_152_KS_0J:
+    //     case eScreen_EPD_150_KS_0J:
+    //     case eScreen_EPD_152_KS_0J:
     //
-    //     if (hV_HAL_GPIO_get(b_pin.panelBusy) == HIGH)
-    //     {
-    //         hV_HAL_Serial_crlf();
-    //         hV_HAL_log(LEVEL_CRITICAL, "Incorrect type for 1.52-Wide");
-    //         hV_HAL_exit(0x01);
-    //     }
-    //     break;
+    //         if (hV_HAL_GPIO_get(b_pin.panelBusy) == HIGH)
+    //         {
+    //             hV_HAL_Serial_crlf();
+    //             hV_HAL_log(LEVEL_CRITICAL, "Incorrect type for 1.52-Wide");
+    //             hV_HAL_exit(0x01);
+    //         }
+    //         break;
     //
-    // default:
+    //     default:
     //
-    //     break;
+    //         break;
     // }
 }
 
@@ -126,8 +128,8 @@ void Pervasive_Touch_Small::COG_getDataOTP()
         // case eScreen_EPD_370_KS_0C:
         // case eScreen_EPD_437_KS_0C:
         //
-        // s_flag50 = true;
-        // break;
+        //     s_flag50 = true;
+        //     break;
 
         default:
 
@@ -142,14 +144,14 @@ void Pervasive_Touch_Small::COG_getDataOTP()
     //    case eScreen_EPD_152_KS_0J:
     //    case eScreen_EPD_290_KS_0F:
     //
-    //    u_flagOTP = true;
-    //    hV_HAL_log(LEVEL_INFO, "OTP check passed - embedded PSR");
-    //    return; // No PSR
-    //    break;
+    //        u_flagOTP = true;
+    //        hV_HAL_log(LEVEL_INFO, "OTP check passed - embedded PSR");
+    //        return; // No PSR
+    //        break;
     //
     //    default:
     //
-    //    break;
+    //        break;
     // }
 
     // GPIO
@@ -204,10 +206,10 @@ void Pervasive_Touch_Small::COG_getDataOTP()
         // case eScreen_EPD_271_PS_09_Touch:
         // case eScreen_EPD_287_PS_09:
         //
-        // offsetPSR = 0x004b;
-        // offsetA5 = 0x0000;
+        //     offsetPSR = 0x004b;
+        //     offsetA5 = 0x0000;
         //
-        // break;
+        //     break;
 
         // case eScreen_EPD_154_KS_0C:
         // case eScreen_EPD_266_KS_0C:
@@ -223,15 +225,15 @@ void Pervasive_Touch_Small::COG_getDataOTP()
         // case eScreen_EPD_206_KS_0E:
         // case eScreen_EPD_213_KS_0E:
         //
-        // offsetPSR = (bank == 0) ? 0x0b1b : 0x171b;
-        // offsetA5 = (bank == 0) ? 0x0000 : 0x0c00;
-        // break;
+        //     offsetPSR = (bank == 0) ? 0x0b1b : 0x171b;
+        //     offsetA5 = (bank == 0) ? 0x0000 : 0x0c00;
+        //     break;
         //
         // case eScreen_EPD_417_KS_0D:
         //
-        // offsetPSR = (bank == 0) ? 0x0b1f : 0x171f;
-        // offsetA5 = (bank == 0) ? 0x0000 : 0x0c00;
-        // break;
+        //     offsetPSR = (bank == 0) ? 0x0b1f : 0x171f;
+        //     offsetA5 = (bank == 0) ? 0x0000 : 0x0c00;
+        //     break;
 
         default:
 
@@ -318,12 +320,12 @@ void Pervasive_Touch_Small::COG_initial(uint8_t updateMode)
         //
         //    if (updateMode == UPDATE_NORMAL)
         //    {
-        //    b_sendCommandData8(0x22, 0xd7);
+        //        b_sendCommandData8(0x22, 0xd7);
         //    }
         //    else if (updateMode == UPDATE_FAST)
         //    {
-        //    b_sendCommandData8(0x3c, 0xc0);
-        //    b_sendCommandData8(0x22, 0xdf);
+        //        b_sendCommandData8(0x3c, 0xc0);
+        //        b_sendCommandData8(0x22, 0xdf);
         //    }
         //    break;
 
@@ -358,9 +360,9 @@ void Pervasive_Touch_Small::COG_initial(uint8_t updateMode)
             {
                 // case eScreen_EPD_290_KS_0F: // No PSR
                 //
-                // b_sendCommandData8(0x4d, 0x55);
-                // b_sendCommandData8(0xe9, 0x02);
-                // break;
+                //     b_sendCommandData8(0x4d, 0x55);
+                //     b_sendCommandData8(0xe9, 0x02);
+                //     break;
 
                 default:
 
@@ -390,9 +392,9 @@ void Pervasive_Touch_Small::COG_sendImageDataFast(FRAMEBUFFER_CONST_TYPE frame1,
         // case eScreen_EPD_150_KS_0J:
         // case eScreen_EPD_152_KS_0J:
         //
-        // b_sendIndexData(0x24, previousBuffer, sizeFrame); // Next frame, blackBuffer
-        // b_sendIndexData(0x26, nextBuffer, sizeFrame); // Previous frame, 0x00
-        // break;
+        //     b_sendIndexData(0x24, previousBuffer, sizeFrame); // Next frame, blackBuffer
+        //     b_sendIndexData(0x26, nextBuffer, sizeFrame); // Previous frame, 0x00
+        //     break;
 
         default:
 
@@ -424,9 +426,9 @@ void Pervasive_Touch_Small::COG_sendImageDataNormal(FRAMEBUFFER_CONST_TYPE frame
         // case eScreen_EPD_150_KS_0J:
         // case eScreen_EPD_152_KS_0J:
         //
-        // b_sendIndexData(0x24, frame, sizeFrame); // Next frame, blackBuffer
-        // b_sendIndexFixed(0x26, 0x00, sizeFrame); // Previous frame, 0x00
-        // break;
+        //     b_sendIndexData(0x24, frame, sizeFrame); // Next frame, blackBuffer
+        //     b_sendIndexFixed(0x26, 0x00, sizeFrame); // Previous frame, 0x00
+        //     break;
 
         default:
 
@@ -444,11 +446,11 @@ void Pervasive_Touch_Small::COG_update()
         // case eScreen_EPD_150_KS_0J:
         // case eScreen_EPD_152_KS_0J:
         //
-        // b_waitBusy(LOW); // 152 specific
-        // b_sendCommand8(0x20); // Display Refresh
-        // hV_HAL_GPIO_set(b_pin.panelCS); // CS# = 1
-        // b_waitBusy(LOW); // 152 specific
-        // break;
+        //     b_waitBusy(LOW); // 152 specific
+        //     b_sendCommand8(0x20); // Display Refresh
+        //     hV_HAL_GPIO_set(b_pin.panelCS); // CS# = 1
+        //     b_waitBusy(LOW); // 152 specific
+        //     break;
 
         default:
 
@@ -469,7 +471,7 @@ void Pervasive_Touch_Small::COG_stopDCDC()
         // case eScreen_EPD_150_KS_0J:
         // case eScreen_EPD_152_KS_0J:
         //
-        // break;
+        //     break;
 
         default:
 
@@ -501,11 +503,16 @@ void Pervasive_Touch_Small::begin()
     COG_reset(); // Reset
     COG_getDataOTP(); // 3-wire SPI read OTP memory
 
-    // #if (TOUCH_MODE != USE_TOUCH_NONE)
-
     d_beginTouch();
 
-    // #endif // TOUCH_MODE
+    // Check I2C device availability
+    uint8_t bufferWrite[1] = {0};
+    if (hV_HAL_Wire_transfer(d_touchAddress, bufferWrite, 1, nullptr, 0) == RESULT_ERROR)
+    {
+        hV_HAL_Serial_crlf();
+        hV_HAL_log(LEVEL_CRITICAL, "Touch controller (0x%02x) not found", d_touchAddress);
+        hV_HAL_exit(0x01);
+    }
 }
 
 STRING_CONST_TYPE Pervasive_Touch_Small::reference()
@@ -535,7 +542,7 @@ void Pervasive_Touch_Small::updateNormal(FRAMEBUFFER_CONST_TYPE frame, uint32_t 
 }
 
 void Pervasive_Touch_Small::updateFast(FRAMEBUFFER_CONST_TYPE frame1,
-                                        FRAMEBUFFER_CONST_TYPE frame2, uint32_t sizeFrame)
+                                       FRAMEBUFFER_CONST_TYPE frame2, uint32_t sizeFrame)
 {
     b_resume(); // GPIO
     COG_reset(); // Reset
@@ -559,8 +566,6 @@ void Pervasive_Touch_Small::updateFast(FRAMEBUFFER_CONST_TYPE frame1,
 //
 // === Touch section
 //
-// #if (TOUCH_MODE != USE_TOUCH_NONE)
-
 void Pervasive_Touch_Small::d_beginTouch()
 {
     // v_touchTrim = 0x10; // standard threshold
@@ -568,7 +573,7 @@ void Pervasive_Touch_Small::d_beginTouch()
 
     // Target   FSM_ON
     // Source   FSM_OFF -> FSM_SLEEP
-    //      FSM_SLEEP
+    //          FSM_SLEEP
     if (d_fsmPowerTouch == FSM_OFF)
     {
         hV_HAL_Wire_begin();
@@ -728,9 +733,8 @@ void Pervasive_Touch_Small::d_getRawTouch(touch_t & touch)
                 touch.t = TOUCH_EVENT_NONE;
                 touch.z = 0;
             }
-            else
+            else // Take previous position for release
             {
-                // Take previous position for release
                 d_touchPrevious = TOUCH_EVENT_NONE;
                 touch.t = TOUCH_EVENT_RELEASE;
                 touch.x = d_touchX;
@@ -777,61 +781,61 @@ void Pervasive_Touch_Small::d_getRawTouch(touch_t & touch)
     //             touch.t = TOUCH_EVENT_RELEASE;
     //         }
     //     }
-	else if (SCREEN_SIZE(u_eScreen_EPD) == SIZE_370)
-	{
-		touch.z = 0;
-		touch.t = TOUCH_EVENT_NONE;
-
-		// Only one finger read
-		if (flagInterrupt > 0) // touch
-		{
-			uint8_t bufferWrite[1];
-			uint8_t bufferRead[3 + 6];
-
-			bufferWrite[0] = 0x00;
-			hV_HAL_Wire_transfer(d_touchAddress, bufferWrite, 1, bufferRead, 3 + 6); // report
-
-			// char * stringEvent[] = {"Down", "Up", "Contact", "Reserved"};
-			// uint8_t event = bufferRead[3 + 6 * 0 + 0] >> 6;
-			uint8_t id = bufferRead[3 + 6 * 0 + 2] >> 4; // 0= Down, 1= Up, 2= Contact, 3= Reserved
-			bool flagValid = (id < 0x0f);
-
-			if (flagValid)
-			{
-				touch.x = ((bufferRead[3 + 6 * 0 + 0] & 0x0f) << 8) + bufferRead[3 + 6 * 0 + 1];
-				touch.y = ((bufferRead[3 + 6 * 0 + 2] & 0x0f) << 8) + bufferRead[3 + 6 * 0 + 3];
-
-				touch.t = (d_touchPrevious != TOUCH_EVENT_NONE) ? TOUCH_EVENT_MOVE : TOUCH_EVENT_PRESS;
-
-				// Keep position for next release
-				d_touchPrevious = TOUCH_EVENT_PRESS;
-				d_touchX = touch.x;
-				d_touchY = touch.y;
-				touch.z = 0x16;
-			}
-			else
-			{
-				touch.t = TOUCH_EVENT_RELEASE;
-			}
-		}
-    }
-    else // no touch
+    else if (SCREEN_SIZE(u_eScreen_EPD) == SIZE_370)
     {
-        if (d_touchPrevious == TOUCH_EVENT_NONE)
+        touch.z = 0;
+        touch.t = TOUCH_EVENT_NONE;
+
+        // Only one finger read
+        if (flagInterrupt > 0) // touch
         {
-            touch.t = TOUCH_EVENT_NONE;
-            touch.z = 0;
+            uint8_t bufferWrite[1];
+            uint8_t bufferRead[3 + 6];
+
+            bufferWrite[0] = 0x00;
+            hV_HAL_Wire_transfer(d_touchAddress, bufferWrite, 1, bufferRead, 3 + 6); // report
+
+            // char * stringEvent[] = {"Down", "Up", "Contact", "Reserved"};
+            // uint8_t event = bufferRead[3 + 6 * 0 + 0] >> 6;
+            uint8_t id = bufferRead[3 + 6 * 0 + 2] >> 4; // 0= Down, 1= Up, 2= Contact, 3= Reserved
+            bool flagValid = (id < 0x0f);
+
+            if (flagValid)
+            {
+                touch.x = ((bufferRead[3 + 6 * 0 + 0] & 0x0f) << 8) + bufferRead[3 + 6 * 0 + 1];
+                touch.y = ((bufferRead[3 + 6 * 0 + 2] & 0x0f) << 8) + bufferRead[3 + 6 * 0 + 3];
+
+                touch.t = (d_touchPrevious != TOUCH_EVENT_NONE) ? TOUCH_EVENT_MOVE : TOUCH_EVENT_PRESS;
+
+                // Keep position for next release
+                d_touchPrevious = TOUCH_EVENT_PRESS;
+                d_touchX = touch.x;
+                d_touchY = touch.y;
+                touch.z = 0x16;
+            }
+            else
+            {
+                touch.t = TOUCH_EVENT_RELEASE;
+            }
         }
-        else // Take previous position for release
+        else // no touch
         {
-            d_touchPrevious = TOUCH_EVENT_NONE;
-            touch.t = TOUCH_EVENT_RELEASE;
-            touch.x = d_touchX;
-            touch.y = d_touchY;
-            touch.z = 0x16;
+            if (d_touchPrevious == TOUCH_EVENT_NONE)
+            {
+                touch.t = TOUCH_EVENT_NONE;
+                touch.z = 0;
+            }
+            else // Take previous position for release
+            {
+                d_touchPrevious = TOUCH_EVENT_NONE;
+                touch.t = TOUCH_EVENT_RELEASE;
+                touch.x = d_touchX;
+                touch.y = d_touchY;
+                touch.z = 0x16;
+            }
         }
-    }
-} // u_codeSize
+    } // u_eScreen_EPD
+}
 
 bool Pervasive_Touch_Small::d_getInterruptTouch()
 {
@@ -840,8 +844,6 @@ bool Pervasive_Touch_Small::d_getInterruptTouch()
     // 271, 343 and 370: LOW = false for interrupt
     return (hV_HAL_GPIO_get(b_pin.touchInt) == LOW);
 }
-
-// #endif // TOUCH_MODE
 //
 // === End of Touch section
 //

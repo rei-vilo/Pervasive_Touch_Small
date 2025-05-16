@@ -8,8 +8,8 @@
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v01_20231225_A
 ///
 /// @author Rei Vilo
-/// @date 21 Jan 2025
-/// @version 902
+/// @date 21 May 2025
+/// @version 909
 ///
 /// @copyright (c) Rei Vilo, 2010-2025
 /// @copyright All rights reserved
@@ -48,7 +48,7 @@
 ///
 /// @brief Library release number
 ///
-#define DRIVER_TOUCH_SMALL_RELEASE 902
+#define DRIVER_TOUCH_SMALL_RELEASE 909
 
 ///
 /// @name List of supported screens
@@ -138,12 +138,8 @@ class Pervasive_Touch_Small : public Driver_EPD_Virtual
     //
     // === Touch section
     //
-// #if (TOUCH_MODE != USE_TOUCH_NONE)
-
     virtual void d_getRawTouch(touch_t & touch);
     virtual bool d_getInterruptTouch();
-
-// #endif // TOUCH_MODE
     //
     // === End of Touch section
     //
@@ -165,16 +161,12 @@ class Pervasive_Touch_Small : public Driver_EPD_Virtual
     //
     // === Touch section
     //
-// #if (TOUCH_MODE != USE_TOUCH_NONE)
-
     uint8_t d_touchAddress;
     uint8_t d_touchPrevious;
     uint16_t d_touchX, d_touchY;
     uint8_t d_fsmPowerTouch = FSM_OFF;
 
     void d_beginTouch();
-
-// #endif // TOUCH_MODE
     //
     // === End of Touch section
     //
