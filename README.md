@@ -1,5 +1,9 @@
 # Pervasive Displays Library Suite - Driver for touch screens with wide temperature and embedded fast update
 
+[![Release](https://img.shields.io/github/v/release/pervasivedisplays/Pervasive_Touch_Small)](https://github.com/pervasivedisplays/Pervasive_Touch_Small/releases) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9f09780839f7479285cb931ffe4954d7)](https://app.codacy.com/gh/pervasivedisplays/Pervasive_Touch_Small/dashboard?utm_source=gh&utm_Small=referral&utm_content=&utm_campaign=Badge_grade) ![Arduino lint](https://github.com/pervasivedisplays/Pervasive_Touch_Small/actions/workflows/main.yml/badge.svg) [![GitHub issues](https://img.shields.io/github/issues/pervasivedisplays/Pervasive_Touch_Small)](https://github.com/pervasivedisplays/Pervasive_Touch_Small/issues)
+
+[![](https://img.shields.io/badge/-Knowledge_Base-orange)](https://docs.pervasivedisplays.com/knowledge/)
+
 The driver is specifically designed for the [Pervasive Displays](https://www.pervasivedisplays.com) e-paper screens, extension boards and evaluation kits.
 
 ![](https://pdls.pervasivedisplays.com/userguide/img/Logo_PDI_text_320.png)
