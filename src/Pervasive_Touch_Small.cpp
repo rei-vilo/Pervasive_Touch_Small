@@ -301,7 +301,7 @@ void Pervasive_Touch_Small::COG_getDataOTP()
     debugOTP(COG_data, _readBytes, COG_WIDE_SMALL, SCREEN_DRIVER(u_eScreen_EPD));
 #endif // DEBUG_OTP
 
-	hV_HAL_SPI3_end();
+    hV_HAL_SPI3_end();
 }
 
 void Pervasive_Touch_Small::COG_initial(uint8_t updateMode)
