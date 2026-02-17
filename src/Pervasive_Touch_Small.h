@@ -7,11 +7,10 @@
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v03_20231031_B
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v01_20231225_A
 ///
-/// @author Rei Vilo
 /// @date 21 May 2025
 /// @version 909
 ///
-/// @copyright (c) Rei Vilo, 2010-2025
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
