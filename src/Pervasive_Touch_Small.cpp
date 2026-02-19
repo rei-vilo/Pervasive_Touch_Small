@@ -6,7 +6,7 @@
 // Project Pervasive Displays Library Suite
 // Based on highView technology
 //
-// Copyright (c) Pervasive Displays Inc., 2021-2025
+// Copyright (c) Pervasive Displays Inc., 2021-2026
 // Licence All rights reserved
 //
 // See Pervasive_Touch_Small.h for references
