@@ -7,7 +7,7 @@
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v03_20231031_B
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v01_20231225_A
 ///
-/// @date 21 May 2025
+/// @date 9 June 2026
 /// @version 909
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
