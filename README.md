@@ -1,8 +1,6 @@
 # Pervasive Displays Library Suite - Driver for touch screens with wide temperature and embedded fast update
 
-[![Release](https://img.shields.io/github/v/release/pervasivedisplays/Pervasive_Touch_Small)](https://github.com/pervasivedisplays/Pervasive_Touch_Small/releases) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9f09780839f7479285cb931ffe4954d7)](https://app.codacy.com/gh/pervasivedisplays/Pervasive_Touch_Small/dashboard?utm_source=gh&utm_Small=referral&utm_content=&utm_campaign=Badge_grade) ![Arduino lint](https://github.com/pervasivedisplays/Pervasive_Touch_Small/actions/workflows/main.yml/badge.svg) [![GitHub issues](https://img.shields.io/github/issues/pervasivedisplays/Pervasive_Touch_Small)](https://github.com/pervasivedisplays/Pervasive_Touch_Small/issues)
-
-[![](https://img.shields.io/badge/-Knowledge_Base-orange)](https://docs.pervasivedisplays.com/knowledge/)
+[![Release](https://img.shields.io/github/v/release/pervasivedisplays/Pervasive_Touch_Small)](https://github.com/pervasivedisplays/Pervasive_Touch_Small/releases) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9f09780839f7479285cb931ffe4954d7)](https://app.codacy.com/gh/pervasivedisplays/Pervasive_Touch_Small/dashboard?utm_source=gh&utm_Small=referral&utm_content=&utm_campaign=Badge_grade) ![Arduino lint](https://github.com/pervasivedisplays/Pervasive_Touch_Small/actions/workflows/main.yml/badge.svg) [![GitHub issues](https://img.shields.io/github/issues/pervasivedisplays/Pervasive_Touch_Small)](https://github.com/pervasivedisplays/Pervasive_Touch_Small/issues) [![](https://img.shields.io/badge/-Knowledge_Base-orange)](https://docs.pervasivedisplays.com/knowledge/)
 
 The driver is specifically designed for the [Pervasive Displays](https://www.pervasivedisplays.com) e-paper screens, extension boards and evaluation kits.
 
@@ -29,8 +27,7 @@ The driver library can be used stand-alone or with the [Pervasive Displays Libra
 
 ## Documentation
 
-* [Application Note for small sizes of wide temperature EPDs](https://www.pervasivedisplays.com/wp-content/uploads/2023/02/ApplicationNote_Small_Size_wide-Temperature_EPD_v03_20231031_B.pdf)
-* [Pervasive Displays Technical Wiki](https://docs.pervasivedisplays.com/) 
+* [Knowledge Base](https://docs.pervasivedisplays.com/knowledge/) [![](https://img.shields.io/badge/-Knowledge_Base-orange)](https://docs.pervasivedisplays.com/knowledge/)
 * [Pervasive Displays Inc. (龍亭新技股份有限公司)](https://www.pervasivedisplays.com/)
 * [Product line](https://www.pervasivedisplays.com/products/)
 
