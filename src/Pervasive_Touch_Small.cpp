@@ -47,6 +47,7 @@
 // Release 902: Simplified touch options
 // Release 909: Added I2C device availability check
 // Release 909: Improved stability for 3.70 touch
+// Release 1000: Synchronised with PDLS_Common
 //
 
 // Header
@@ -683,7 +684,7 @@ void Pervasive_Touch_Small::d_beginTouch()
 
 void Pervasive_Touch_Small::d_getRawTouch(touch_t & touch)
 {
-    bool flagValid = false;
+    // bool flagValid = false;
     uint8_t flagInterrupt = 1 - hV_HAL_GPIO_get(b_pin.touchInt);
     hV_HAL_delayMilliseconds(10);
 
