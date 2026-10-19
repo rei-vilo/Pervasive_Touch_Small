@@ -48,6 +48,7 @@
 // Release 909: Added I2C device availability check
 // Release 909: Improved stability for 3.70 touch
 // Release 1000: Synchronised with PDLS_Common
+// Release 1011: Improved trace granualarity
 //
 
 // Header
@@ -92,7 +93,7 @@ void Pervasive_Touch_Small::COG_reset()
     //
     //         if (hV_HAL_GPIO_get(b_pin.panelBusy) == HIGH)
     //         {
-    //             hV_HAL_Serial_crlf();
+    //             hV_HAL_log_crlf();
     //             hV_HAL_log(LEVEL_CRITICAL, "Incorrect type for 1.52-Wide");
     //             hV_HAL_exit(0x01);
     //         }
@@ -236,7 +237,7 @@ void Pervasive_Touch_Small::COG_getDataOTP()
 
         default:
 
-            hV_HAL_Serial_crlf();
+            hV_HAL_log_crlf();
             hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - Screen %i-%cS-0%c not supported", SCREEN_SIZE(u_eScreen_EPD), SCREEN_FILM(u_eScreen_EPD), SCREEN_DRIVER(u_eScreen_EPD));
             hV_HAL_exit(0x01);
             break;
@@ -258,7 +259,7 @@ void Pervasive_Touch_Small::COG_getDataOTP()
 
         if (ui8 != 0xa5)
         {
-            hV_HAL_Serial_crlf();
+            hV_HAL_log_crlf();
             hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - Bank %i, first 0x%02x, expected 0x%02x", bank, ui8, 0xa5);
             hV_HAL_exit(0x01);
         }
@@ -297,9 +298,11 @@ void Pervasive_Touch_Small::COG_getDataOTP()
     hV_HAL_SPI3_end();
     u_flagOTP = true;
 
-#if (DEBUG_OTP == 1) // Debug COG_data
+#if (DEBUG_LOG > 0)
+#if (DEBUG_OTP > 0) // Debug COG_data
     debugOTP(COG_data, _readBytes, COG_WIDE_SMALL, SCREEN_DRIVER(u_eScreen_EPD));
 #endif // DEBUG_OTP
+#endif // DEBUG_LOG
 }
 
 void Pervasive_Touch_Small::COG_initial(uint8_t updateMode)
@@ -509,7 +512,7 @@ void Pervasive_Touch_Small::begin()
     uint8_t bufferWrite[1] = {0};
     if (hV_HAL_Wire_transfer(d_touchAddress, bufferWrite, 1, nullptr, 0) == RESULT_ERROR)
     {
-        hV_HAL_Serial_crlf();
+        hV_HAL_log_crlf();
         hV_HAL_log(LEVEL_CRITICAL, "Touch controller (0x%02x) not found", d_touchAddress);
         hV_HAL_exit(0x01);
     }

@@ -7,8 +7,8 @@
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v03_20231031_B
 /// * ApplicationNote_Small_Size_wide-Temperature_EPD_v01_20231225_A
 ///
-/// @date 9 June 2026
-/// @version 1000
+/// @date 21 Oct 2026
+/// @version 1011
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright All rights reserved
@@ -36,8 +36,8 @@
 // SDK and configuration
 #include "PDLS_Common.h"
 
-#if (PDLS_COMMON_RELEASE < 1000)
-#error Required PDLS_COMMON_RELEASE 1000
+#if (PDLS_COMMON_RELEASE < 1011)
+#error Required PDLS_COMMON_RELEASE 1011
 #endif // PDLS_COMMON_RELEASE
 
 // Driver
@@ -47,7 +47,7 @@
 ///
 /// @brief Library release number
 ///
-#define DRIVER_TOUCH_SMALL_RELEASE 1000
+#define DRIVER_TOUCH_SMALL_RELEASE 1011
 
 ///
 /// @name List of supported screens
